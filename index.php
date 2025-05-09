@@ -2,11 +2,6 @@
 
 session_start();
 
-$authenticated = false;
-if(isset($_SESSION["email"])){
-    $authenticated = true;
-}
-
 $first_name = "";
 $last_name = "";
 $email = "";
@@ -97,14 +92,10 @@ IF($_SERVER['REQUEST_METHOD'] == 'POST'){
     $_SESSION["email"] = $email;
     $_SESSION["created_at"] = $created_at;
 
-    header("Location: menu.php");
+    header("Location: login.php");
     exit();
     }
 }
-if($authenticated){
-    header("Location: login.php");
-    exit();
-} else {
 ?>
 <html lang="en">
 <head>
@@ -258,8 +249,3 @@ if($authenticated){
 </body>
 </html>
 
-
-
-<?php
-}
-?>
