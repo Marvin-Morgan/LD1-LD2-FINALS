@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?
+session_start();
+
+if (!isset($_SESSION["email"])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
